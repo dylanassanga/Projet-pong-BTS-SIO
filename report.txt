@@ -1,0 +1,133 @@
+Composants PONG : 
+
+- une fenetre
+- balle
+- les raquettes
+- le score
+- le filet
+- les bords du terrain
+- le fond
+- un écran de debut partie
+- un écran de fin partie
+- un ecran de pause
+- un cycle de rafraichissement
+- Inputs du joueur
+
+PONG : BACKLOG
+
+
+- faire un cadre de limites
+- faire le fond du cadre en noir
+- paramètrer les bords du bas et du haut comme mur si contacte avec la balle
+- paramètrer les bords de gauche et de droite comme une défaite de la manche si contact avec le balle
+- paramètrer les bords du bas et du haut comme mur pour que les raquettes ne le dépasse pas 
+- écran d'accueille avec un bouton play
+- timer démarre au lancement de la partie 
+- affiche timer en au à gauche pour chaque début de manche et reset à la fin de celle ci
+- faire une ligne blanche pointillet de délimitation 
+- afficher le score de chaques joueurs de chaque côté des pointillets
+- faire en sorte que le score s'incrémente de +1 pour le joueur de droite si balle touche bord gauche
+- faire en sorte que le score s'incrémente de +1 pour le joueur de gauche si balle touche bord droite
+- victoire définit à 11 points 
+- faire apparaitre la balle au centre du filet 
+- balle rebondie parralèllement à l'inclinaison de ça reception avec une marge de variation d'angle de 10°
+- rafraichissement de l'image et du positionnement de la balle 30 images par secondes
+- "joueur 1" positionner à gauche des pointillets 
+- "joueur 2" positionner à droite des pointillets 
+- lancer la balle dans une direction aléatoire à droite ou à gauche pour la première manche
+- lancer la balle dans une direction aléatoire à droite ou à gauche pour les autres manches sur une position verticale du filet
+- "joueur 2" utilise flèche directionnelle haut pour monter ça raquette en vertical  
+- "joueur 2" utilise flèche directionnelle bas pour descenendre ça raquette en vertical  
+- "joueur 1" utilise touche Z pour monter ça raquette en vertical  
+- "joueur 1" utilise S pour descenendre ça raquette en vertical  
+- écran de fin avec si "joueur 1" gagne affiche "Joueur 1" à gagné
+- écran de fin avec si "joueur 2" gagne affiche "Joueur 2" à gagné
+- affiche timer principale dès que "joueur 1" ou "joueur 2" à gagner
+
+PSEUDO-CODE : 
+
+Fond-Réglementations
+    Taux de rafraichissement
+        Taux initialisé à 30 images par secondes
+    Afficher background noir    
+    Délimiter background au bord de fenêtre
+    Afficher pointillets blanc au centre en vertical
+    Affichage joueurs
+        Afficher "joueur 1" à gauche
+        Afficher "joueur 2" à droite
+    Affichage Scores
+        Afficher Score "joueur 1" à gauche des pointillets
+        Afficher Score "joueur 2" à droite des pointillets
+    Paramètrer le bord du bas
+        Définir comme bord solide pour balle
+        Définir comme bord solide pour raquettes
+    Paramètrer le bord du haut
+        Définir comme bord solide pour balle
+        Définir comme bord solide pour raquettes
+    Paramètrer le bord de gauche
+        Si contacte avec balle
+            Définir comme défaite de la manche
+            Incrémenter +1 point au "joueur 2"
+            Afficher nouvelle manche
+    Paramètrer le bord de droite
+        Si contacte avec balle
+            Définir comme défaite de la manche
+            Incrémenter +1 point au "joueur 1"
+            Afficher nouvelle manche
+    Limite de points à 11 
+        Si "joueur 1" atteint 11 points
+            Afficher ""Joueur 1" à gagné"
+        Sinon si "joueur 2" atteint 11 points 
+            Afficher ""Joueur 2" à gagné"      
+    Paramètrer raquettes
+        Raquette bouge en vertical
+        Raquette de l'épaisseur de la balle
+        Longueur de 1/7 de l'écran vertical
+    Paramètrer balle
+        Faire un carré blanc
+
+En jeu    
+    Afficher bouton play 
+        Si bouton Play appuyer
+            Lancer timer général
+                Afficher timer général en haut à gauche
+            Lancer timer de manches
+                Afficher timer de manche en haut à gauche sous timer général
+            Afficher raquette 
+                Raquette joueur 1 à gauche de l'écran
+                Raquette joueur 1 à 4 raquettes de distance du bord
+                Raquette joueur 2 à droite de l'écran
+                Raquette joueur 2 à 4 raquettes de distance du bord
+            Afficher la balle
+                A chaques manches
+                    Si la première manches
+                        Balle au centre des pointillets
+                    Sinon 
+                        La balle se situe
+                            Soit au centre des pointillets
+                            Soit en haut des pointillets
+                            Soit en bas des pointillets
+                La balle part 
+                    Du côté droit ou coté gauche
+                Direction balle
+                    Rebond parralèllement à l'arriver 
+                    Marge de variation de 10°  
+            Initialisation des touches directionnelles
+                Pour joueur 1
+                    Z pour monter la raquette
+                    S pour descendre la raquette
+                Pour joueur 2
+                    flèche directionnelle du haut pour monter la raquette
+                    flèche directionnelle du bas pour descendre la Raquette
+        Sinon 
+            Laisser le bouton play afficher
+    FIN                          
+
+
+                            
+
+
+                
+                    
+
+
